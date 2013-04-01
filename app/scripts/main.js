@@ -30,11 +30,8 @@ require(['jquery', 'bootstrap', 'handlebars'], function ($) {
             // Data
             var stories = data.content.stories;
             $.each(stories, function() {
-                $('.storify-stories').append(template(this));
-
                 // Firebase
                 storiesRef.push({
-                    user_id: this.sid,
                     title: this.title,
                     id: this.sid,
                     stats: {
@@ -50,6 +47,8 @@ require(['jquery', 'bootstrap', 'handlebars'], function ($) {
                     }
                 });
 
+                // Attach to Handlebars
+                // $('.storify-stories').append(template(this));
                 console.log(this);
             });
         }
