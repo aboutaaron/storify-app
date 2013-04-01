@@ -11,9 +11,15 @@ require.config({
     }
 });
 
-require(['app', 'jquery', 'bootstrap'], function (app, $) {
+require(['jquery', 'bootstrap'], function ($) {
     'use strict';
-    // use app here
-    console.log(app);
-    console.log('Running jQuery %s', $().jquery);
+    var aaron = 'aboutaaron';
+
+    $.ajax({
+        dataType: 'jsonp',
+        url: 'http://api.storify.com/v1/stories/search?q=' + aaron,
+        success: function(data) {
+                console.log(data);
+        }
+    });
 });
