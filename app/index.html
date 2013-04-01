@@ -29,17 +29,34 @@
                 <div class="span6 offset3">
                     <h1 class="app-logo">Storify App</h1>
                     <p>My name is Aaron Williams and I'd like to intern for Storify.</p>
-                    <p>Here's where I've been mentioned in Storify (powered by your API!):</p>
-                    <ul class="storify-stories">
-
-                    </ul>
+                    <ul class="storify-stories unstyled"></ul>
                 </div>
             </div>
         </div>
 
+        <footer class="container">
+            <div class="span6 offset3">
+                Powered by <a href="http://storify.com">Storify</a>.
+            </div>
+        </footer>
+
+        <a href="https://github.com/aboutaaron"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+
         <script id="storify-template" type="text/x-handlebars-template">
             <li>
                 <a href="{{ permalink }}">{{ title }}</a>
+                <ul>
+                    <li>Views: {{ stats.views }}</li>
+                    <li>Likes: {{ stats.likes }}</li>
+                </ul>
+                <ul>
+                    <li>Images: {{ stats.elements.image }}</li>
+                    <li>Links: {{ stats.elements.link }}</li>
+                    <li>Other: {{ stats.elements.other }}</li>
+                    <li>Quotes: {{ stats.elements.quote }}</li>
+                    <li>Text: {{ stats.elements.text }}</li>
+                    <li>Videos: {{ stats.elements.video }}</li>
+                </ul>
             </li>
         </script>
 
