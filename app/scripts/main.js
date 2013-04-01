@@ -22,8 +22,10 @@ require(['jquery', 'bootstrap'], function ($) {
         success: function(data) {
             var stories = data.content.stories;
             $.each(stories, function() {
-                console.log(this.title);
-            });
+                $('.storify-stories').append('<li>'+ this.title + '</li>');
+
+                console.log(this);
+            })
         }
     });
 });
