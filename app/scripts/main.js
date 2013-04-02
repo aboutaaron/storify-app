@@ -1,5 +1,5 @@
 /*global Handlebars:false */
-
+var myGlob;
 require.config({
     paths: {
         jquery: '../components/jquery/jquery',
@@ -41,6 +41,7 @@ require(['jquery', 'bootstrap', 'handlebars'], function ($) {
                     storiesRef.push({
                         title: this.title,
                         id: this.sid,
+                        permalink: this.permalink,
                         stats: {
                             views: this.stats.views,
                             likes: this.stats.likes,
@@ -53,11 +54,15 @@ require(['jquery', 'bootstrap', 'handlebars'], function ($) {
                             }
                         }
                     });
-
-                    // Attach to Handlebars
-                    // $('.storify-stories').append(template(this));
-                    console.log(this);
                 }); // .each()
+
+                // Attach to Handlebars
+                storiesRef.on('value', function(snapshot) {
+                    $.each(snapshot.val(), function() {
+                        $('.storify-stories').append(template(this));
+                    });
+                });
+
             } // success
         }); // .ajax()
     }); // .click()
