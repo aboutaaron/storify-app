@@ -28,7 +28,7 @@ require(['jquery', 'bootstrap', 'handlebars'], function ($) {
         // Ajax request to Storify API
         $.ajax({
             dataType: 'jsonp',
-            url: 'http://api.storify.com/v1/stories/search?q=' + query +'&per_page=10',
+            url: 'http://api.storify.com/v1/stories/search?q=' + query,
             error: function(errorThrown) { console.log(errorThrown); },
             success: function(data) {
                 // Iterate through the data and push the values to Firebase
@@ -68,7 +68,8 @@ require(['jquery', 'bootstrap', 'handlebars'], function ($) {
 
     storiesRef.on('value', function(snapshot) {
         $.each(snapshot.val(), function() {
-            $('#storify-stories').append(template(this));
+            //$('#storify-stories').append(template(this));
+            console.log(this);
         });
     });
 }); // require()
