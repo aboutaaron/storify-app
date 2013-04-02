@@ -69,6 +69,11 @@ require(['jquery', 'bootstrap', 'handlebars', 'd3'], function ($) {
     var source = $('#storify-template').html();
     var template = Handlebars.compile(source);
 
+    // If the nothing is the db write an alert to the DOM
+    // However, upon a search, grab the data and throw it on to the page
+    // Check against values already in Firebase (by id) and only
+    // append values that are unique
+
     storiesRef.on('value', function(snapshot) {
         if(snapshot.val() === null) {
             $('form').append('<span class="btn btn-info">There is nothing in the database. Search some stories!</span>')
