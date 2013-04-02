@@ -26,7 +26,7 @@
         </header>
         <div class="container">
             <div class="row">
-                <div class="span6 offset3">
+                <div class="span5">
                     <h1 class="app-logo">Storify App</h1>
                     <p>My name is Aaron Williams and I'd like to intern for Storify.</p>
                     <form action="">
@@ -37,14 +37,20 @@
                             <button class="btn" id="search-storify">Let's viz!</button>
                         </fieldset>
                     </form>
-
-                    <ul class="storify-stories unstyled"></ul>
                 </div>
+
+                <div class="span6 offset1">
+                    <h2 class="page-header">About this app</h2>
+                    <p>Text</p>
+                </div>
+            </div> <!-- /.row -->
+            <div class="row" id="storify-stories">
+
             </div>
         </div>
 
         <footer class="container">
-            <div class="span6 offset3">
+            <div class="span8 offset2">
                 Powered by <a href="http://storify.com">Storify</a>.
                 <small>Built with <a href="#">Firebase</a>, <a href="#">Yeoman</a>, <a href="#">Bootstrap</a> and <a href="#">SASS</a>.</small>
             </div>
@@ -53,10 +59,14 @@
         <a href="https://github.com/aboutaaron"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
 
         <script id="storify-template" type="text/x-handlebars-template">
-            <li>
-                <a href="{{ permalink }}">{{ title }}</a>
-                <span class="label label-success">{{ id }}</span>
-            </li>
+            <div class="span6">
+                <div class="well">
+                    <h2>{{ author.username }}</h2>
+                    <img src="{{ author.avatar }}" alt="{{ author.username }}" width="50px" height="50px">
+                    <a href="{{ permalink }}">{{ title }}</a>
+                    <span class="label label-success">You searched: {{ search }}</span>
+                </div>
+            </div>
             <br>
         </script>
 

@@ -49,7 +49,12 @@ require(['jquery', 'bootstrap', 'handlebars'], function ($) {
                                 text: this.stats.elements.text,
                                 vidoes: this.stats.elements.video
                             }
-                        }
+                        },
+                        author: {
+                            username: this.author.username,
+                            avatar: this.author.avatar
+                        },
+                        search: query
                     });
                 }); // .each()
                 location.reload();
@@ -63,7 +68,7 @@ require(['jquery', 'bootstrap', 'handlebars'], function ($) {
 
     storiesRef.on('value', function(snapshot) {
         $.each(snapshot.val(), function() {
-            $('.storify-stories').append(template(this));
+            $('#storify-stories').append(template(this));
         });
     });
 }); // require()
