@@ -58,7 +58,7 @@ require(['jquery', 'bootstrap', 'handlebars', 'd3'], function ($) {
                         search: query
                     });
                 }); // .each()
-                location.reload();
+                //location.reload();
             } // success
         }); // .ajax()
     }); // .click()
@@ -69,12 +69,14 @@ require(['jquery', 'bootstrap', 'handlebars', 'd3'], function ($) {
 
     storiesRef.on('value', function(snapshot) {
         if(snapshot.val() === null) {
-            $('form').append('<span class="label label-important">There is nothing in the database. Search some stories!</span>')
+            $('form').append('<span class="btn btn-info">There is nothing in the database. Search some stories!</span>')
+
         } else {
-            $.each(snapshot.val(), function() {
+            /*$.each(snapshot.val(), function() {
                 $('#storify-stories').append(template(this));
                 console.log(this);
-            })
+            })*/
+            console.log(snapshot.val())
         }
     });
 }); // require()
