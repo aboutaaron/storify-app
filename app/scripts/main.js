@@ -1,5 +1,5 @@
 /*global Handlebars:false */
-var myGlob;
+
 require.config({
     paths: {
         jquery: '../components/jquery/jquery',
@@ -68,9 +68,13 @@ require(['jquery', 'bootstrap', 'handlebars', 'd3'], function ($) {
     var template = Handlebars.compile(source);
 
     storiesRef.on('value', function(snapshot) {
-        $.each(snapshot.val(), function() {
-            //$('#storify-stories').append(template(this));
-            console.log(this);
-        });
+        if(snapshot.val() === null) {
+            $('form').append('<span class="label label-important">There is nothing in the database. Search some stories!</span>')
+        } else {
+            $.each(snapshot.val(), function() {
+                $('#storify-stories').append(template(this));
+                console.log(this);
+            })
+        }
     });
 }); // require()

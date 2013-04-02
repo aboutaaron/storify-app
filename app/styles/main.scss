@@ -1,10 +1,31 @@
 @import 'sass-bootstrap/lib/bootstrap';
 @import 'sass-bootstrap/lib/responsive';
-@import 'storify_variables';
-@import 'storify';
+@import 'flat-ui/sass/flat-ui';
 
 body {
-    font-family: $bodyFont;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
     font-smoothing: antialiased;
+}
+
+header {
+    margin-top: 20px;
+}
+
+.app-logo {
+    font-family: 'Lato', sans-serif;
+}
+
+#ampersand {
+    font-size: 720%;
+    margin-left: 43px;
+    color: $danger;
+}
+
+#hire-me {
+    font-family: 'Lato', sans-serif;
+}
+
+.page-header {
+    margin-top: 51px;
 }

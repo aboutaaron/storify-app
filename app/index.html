@@ -15,20 +15,25 @@
         <script src="components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
 
-        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Lato' rel='stylesheet' type='text/css'>
         <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
     </head>
     <body>
         <header class="container">
-            <div class="span6 offset3">
-                <img class="logo" src="images/avatar-hires.jpg" alt="Hire me for an internship please?" width="50%">
+            <div class="row">
+                <div class="span2 offset3">
+                    <img class="logo" src="images/avatar-hires.jpg" alt="Hire me for an internship please?">
+                </div>
+                <div class="span2">
+                    <span id="ampersand">&amp;</span>
+                </div>
+                <div class="span2"><img src="images/solo-logo.png" alt="Storify!" class="storify-logo"></div>
             </div>
         </header>
         <div class="container">
             <div class="row">
                 <div class="span5">
                     <h1 class="app-logo">Storify App</h1>
-                    <p>My name is Aaron Williams and I'd like to intern for Storify.</p>
                     <form action="">
                         <fieldset>
                             <legend>Vizualize story data</legend>
@@ -40,19 +45,22 @@
                 </div>
 
                 <div class="span6 offset1">
-                    <h2 class="page-header">About this app</h2>
-                    <p>Text</p>
+                    <h2 class="page-header" id="hire-me">Can I be your intern?</h2>
+                    <p>My Name is Aaron Williams (<a href="#">@aboutaaron</a>) and I want to intern at Storify. See, I've been learning to program for about 2 years and I finally feel comfortable applying for gigs. I think I have a some way to go however, so I'd like to come on as a contractor/intern and learn. if I can pull my weight afterward, perhaps we'll talk full-time. </p>
+                    <p>Emails and resumes are fine, but don't tell the whole story (no pun). I decided to build a little app with your API to show you my abilities.</p>
                 </div>
             </div> <!-- /.row -->
             <div class="row" id="storify-stories">
-
+                <div class="span4">
+                    <!-- Do something here -->
+                </div>
             </div>
         </div>
 
         <footer class="container">
             <div class="span8 offset2">
                 Powered by <a href="http://storify.com">Storify</a>.
-                <small>Built with <a href="#">Firebase</a>, <a href="#">Yeoman</a>, <a href="#">Bootstrap</a> and <a href="#">SASS</a>.</small>
+                <small>Built with <a href="#">Firebase</a>, <a href="#">Yeoman</a>, <a href="#">Bootstrap</a>, <a href="#">Flat-UI</a> and <a href="#">SASS</a>.</small>
             </div>
         </footer>
 
@@ -64,7 +72,7 @@
                     <h2>{{ author.username }}</h2>
                     <img src="{{ author.avatar }}" alt="{{ author.username }}" width="50px" height="50px">
                     <a href="{{ permalink }}">{{ title }}</a>
-                    <span class="label label-success">You searched: {{ search }}</span>
+                    <span class="tag">You searched: {{ search }}</span>
                 </div>
             </div>
             <br>
