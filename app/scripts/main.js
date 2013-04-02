@@ -52,6 +52,7 @@ require(['jquery', 'bootstrap', 'handlebars'], function ($) {
                         }
                     });
                 }); // .each()
+                location.reload();
             } // success
         }); // .ajax()
     }); // .click()
