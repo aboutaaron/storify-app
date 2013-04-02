@@ -30,10 +30,6 @@ require(['jquery', 'bootstrap', 'handlebars'], function ($) {
             dataType: 'jsonp',
             url: 'http://api.storify.com/v1/stories/search?q=' + query +'&per_page=10',
             success: function(data) {
-                // Handlebars
-                var source = $('#storify-template').html();
-                var template = Handlebars.compile(source);
-
                 // Iterate through the data and push the values to Firebase
                 var stories = data.content.stories;
                 $.each(stories, function() {
@@ -55,15 +51,17 @@ require(['jquery', 'bootstrap', 'handlebars'], function ($) {
                         }
                     });
                 }); // .each()
-
-                // Attach to Handlebars
-                storiesRef.on('value', function(snapshot) {
-                    $.each(snapshot.val(), function() {
-                        $('.storify-stories').append(template(this));
-                    });
-                });
-
             } // success
         }); // .ajax()
     }); // .click()
+
+    // Attach to Handlebars
+    var source = $('#storify-template').html();
+    var template = Handlebars.compile(source);
+
+    storiesRef.on('value', function(snapshot) {
+        $.each(snapshot.val(), function() {
+            $('.storify-stories').append(template(this));
+        });
+    });
 }); // require()
