@@ -29,11 +29,12 @@ require(['jquery', 'bootstrap', 'handlebars'], function ($) {
         $.ajax({
             dataType: 'jsonp',
             url: 'http://api.storify.com/v1/stories/search?q=' + query +'&per_page=10',
+            error: function(errorThrown) { console.log(errorThrown); },
             success: function(data) {
                 // Iterate through the data and push the values to Firebase
                 var stories = data.content.stories;
                 $.each(stories, function() {
-                    // Firebase
+
                     storiesRef.push({
                         title: this.title,
                         id: this.sid,
