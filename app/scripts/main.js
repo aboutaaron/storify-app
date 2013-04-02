@@ -4,7 +4,8 @@ require.config({
     paths: {
         jquery: '../components/jquery/jquery',
         bootstrap: 'vendor/bootstrap',
-        handlebars: '../components/handlebars/handlebars'
+        handlebars: '../components/handlebars/handlebars',
+        d3: '../components/d3/d3'
     },
     shim: {
         bootstrap: {
@@ -14,7 +15,7 @@ require.config({
     }
 });
 
-require(['jquery', 'bootstrap', 'handlebars'], function ($) {
+require(['jquery', 'bootstrap', 'handlebars', 'd3'], function ($) {
     'use strict';
 
     // Initialize Firebase backend
