@@ -50,11 +50,7 @@
                     <p>Emails and resumes are fine, but don't tell the whole story (no pun). I decided to build a little app with your API to show you my abilities.</p>
                 </div>
             </div> <!-- /.row -->
-            <div class="row" id="storify-stories">
-                <div class="span4">
-                    <!-- Do something here -->
-                </div>
-            </div>
+            <div class="row" id="storify-stories"></div>
         </div>
 
         <footer class="container">
@@ -67,15 +63,12 @@
         <a href="https://github.com/aboutaaron"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
 
         <script id="storify-template" type="text/x-handlebars-template">
-            <div class="span6">
-                <div class="well" height="300px">
-                    <h2>{{ author.username }}</h2>
-                    <img src="{{ author.avatar }}" alt="{{ author.username }}" width="50px" height="50px">
-                    <a href="{{ permalink }}">{{ title }}</a>
-                    <span class="tag">You searched: {{ search }}</span>
-                </div>
+            <div class="span4">
+                <span id="pageviews">{{ stats.views }} <span class="fui-eye-24"></span></span>
+                <p class="username">{{ author.username }}</p>
+                <a href="{{ permalink }}">{{ title }}</a>
+                <span class="tag">You searched: {{ search }}</span>
             </div>
-            <br>
         </script>
 
         <!--[if lt IE 7]>
