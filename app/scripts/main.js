@@ -40,6 +40,8 @@ require(['jquery', 'bootstrap', 'handlebars', 'd3'], function ($) {
                         title: this.title,
                         id: this.sid,
                         permalink: this.permalink,
+                        version: this.version,
+                        thumbnail: this.thumbnail,
                         stats: {
                             views: this.stats.views,
                             likes: this.stats.likes,
