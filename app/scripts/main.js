@@ -32,7 +32,7 @@ require(['jquery', 'bootstrap', 'handlebars', 'd3'], function ($) {
         // Ajax request to Storify API
         $.ajax({
             dataType: 'jsonp',
-            url: 'http://api.storify.com/v1/stories/search?q=' + query,
+            url: 'http://api.storify.com/v1/stories/search?q=' + query + '&per_page=4',
             error: function(errorThrown) { console.log(errorThrown); },
             success: function(data) {
                 // Iterate through the data and push the values to Firebase
@@ -80,14 +80,12 @@ require(['jquery', 'bootstrap', 'handlebars', 'd3'], function ($) {
 
     storiesRef.on('value', function(snapshot) {
         if(snapshot.val() === null) {
-            $('form').append('<span class="btn btn-info">There is nothing in the database. Search some stories!</span>')
+            $('form').append('<span class="btn btn-info">There is nothing in the database. Search some stories!</span>');
 
         } else {
             $.each(snapshot.val(), function() {
                 $('#storify-stories').append(template(this));
-                console.log(this);
             })
-            console.log(snapshot.val())
         }
     });
 }); // require()

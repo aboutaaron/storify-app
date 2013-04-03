@@ -4,6 +4,7 @@
 @import 'flat-ui/sass/flat-ui';
 
 body {
+    border-top: 5px solid $base;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
     font-smoothing: antialiased;
@@ -34,4 +35,20 @@ header {
 // Scorescards
 #pageviews {
     //font-size: 300%;
+}
+
+#storify-stories {
+    .inline {
+        border-bottom: 1px solid $gray;
+        margin-bottom: 50px;
+        padding-bottom: 52px;
+    }
+}
+
+.meta {
+    margin-top: 8px;
+    li {
+        color: $danger;
+        margin-bottom: 10px;
+    }
 }
