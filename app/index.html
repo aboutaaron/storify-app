@@ -34,12 +34,12 @@
                         </div>
                     </div><!-- /.row -->
 
-                    <blockquote>Storify helps making sense of what people post on social media. Our users curate the most important voices and turn them into stories. Guided tour.</blockquote>
+                    <blockquote>Storify helps make<a href="#typo" data-toggle="tooltip" title data-original-title="Original text says 'making,' which isn't grammatically correct. Perks of hiring a journalist!">*</a> sense of what people post on social media. Our users curate the most important voices and turn them into stories. Guided tour.</blockquote>
 
                     <form action="">
                         <fieldset>
-                            <legend>Vizualize story data</legend>
-                            <label for="">Query</label>
+                            <legend>Let's fetch some data</legend>
+                            <label for="">Search:</label>
                             <input type="text" placeholder="Search Storify ...">
                             <button class="btn" id="search-storify">Let's viz!</button>
                         </fieldset>
@@ -69,7 +69,7 @@
                     </a>
                     <ul class="inline">
                         <li>{{ author.username }}</li>
-                        <li>{{ date }}</li>
+                        <li>{{ format-date date }}</li>
                         <li>{{ search }}</li>
                     </ul>
                 </div><!-- /.span5 -->
@@ -84,7 +84,7 @@
                             <span class="meta-content">{{ stats.likes }}</span>
                         </li>
                         <li>
-                            <span class="meta-icon"><i class="icon-quote-right"></i></span>
+                            <span class="meta-icon"><i class="icon-quote-left"></i></span>
                             <span class="meta-content">{{ stats.elements.quotes }}</span>
                         </li>
                         <li>

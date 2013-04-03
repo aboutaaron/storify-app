@@ -43,6 +43,12 @@ header {
         margin-bottom: 50px;
         padding-bottom: 52px;
     }
+
+    .story {
+        .span4 {
+            //background-color: lighter($gray, 50%);
+        }
+    }
 }
 
 .meta {
@@ -50,5 +56,12 @@ header {
     li {
         color: $danger;
         margin-bottom: 10px;
+    }
+}
+
+.inline {
+    li:nth-child(1), li:nth-child(2) {
+        border-right: 1px solid $gray;
+        padding-right: 8px;
     }
 }

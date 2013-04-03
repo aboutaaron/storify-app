@@ -5,7 +5,7 @@ require.config({
         jquery: '../components/jquery/jquery',
         bootstrap: 'vendor/bootstrap',
         handlebars: '../components/handlebars/handlebars',
-        d3: '../components/d3/d3'
+        moment: '../components/moment/moment'
     },
     shim: {
         bootstrap: {
@@ -15,7 +15,7 @@ require.config({
     }
 });
 
-require(['jquery', 'bootstrap', 'handlebars', 'd3'], function ($) {
+require(['jquery', 'bootstrap', 'handlebars', 'moment'], function ($) {
     'use strict';
 
     // Initialize Firebase backend
@@ -87,5 +87,13 @@ require(['jquery', 'bootstrap', 'handlebars', 'd3'], function ($) {
                 $('#storify-stories').append(template(this));
             })
         }
+    });
+
+    // tooltip
+    $("[data-toggle='tooltip']").tooltip();
+
+    // Handlebar Helpers
+    Handlebars.registerHelper('format-date', function (handlebarData) {
+        return moment(handlebarData).format('MMM D, YYYY');
     });
 }); // require()
