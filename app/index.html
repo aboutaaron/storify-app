@@ -19,21 +19,23 @@
         <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
     </head>
     <body>
-        <header class="container">
-            <div class="row">
-                <div class="span2 offset3">
-                    <img class="logo" src="images/avatar-hires.jpg" alt="Hire me for an internship please?">
-                </div>
-                <div class="span2">
-                    <span id="ampersand">&amp;</span>
-                </div>
-                <div class="span2"><img src="images/solo-logo.png" alt="Storify!" class="storify-logo"></div>
-            </div>
-        </header>
         <div class="container">
             <div class="row">
-                <div class="span5">
-                    <h1 class="app-logo">Storify App</h1>
+                <div class="span4">
+                    <h1 class="page-header">
+                        Hey! I'm Aaron and I want to intern for Storify.
+                    </h1>
+                    <div class="row">
+                        <div class="span2">
+                            <img src="images/avatar-hires.jpg" alt="">
+                        </div>
+                        <div class="span2">
+                            <img src="images/solo-logo.png" alt="">
+                        </div>
+                    </div><!-- /.row -->
+
+                    <p>Storify helps making sense of what people post on social media. Our users curate the most important voices and turn them into stories. Guided tour.</p>
+
                     <form action="">
                         <fieldset>
                             <legend>Vizualize story data</legend>
@@ -42,16 +44,13 @@
                             <button class="btn" id="search-storify">Let's viz!</button>
                         </fieldset>
                     </form>
-                </div>
-                <div class="span6 offset1">
-                    <h2 class="page-header" id="hire-me">Can I be your intern?</h2>
-                    <p>My Name is Aaron Williams (<a href="#">@aboutaaron</a>) and I want to intern at Storify. See, I've been learning to program for about 2 years and I finally feel comfortable applying for gigs. I think I have a some way to go however, so I'd like to come on as a contractor/intern and learn. if I can pull my weight afterward, perhaps we'll talk full-time. </p>
-                    <p>Emails and resumes are fine, but don't tell the whole story (no pun). I decided to build a little app with your API to show you my abilities.</p>
-                </div>
-            </div> <!-- /.row -->
-
-            <div class="row" id="storify-stories"></div>
-        </div>
+                </div><!-- /.span4 -->
+                <div class="span7 offset1">
+                    <div class="row" id="storify-stories">
+                    </div><!-- /#storify-stories -->
+                </div> <!-- /.span7 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
 
         <footer class="container">
             <div class="span8 offset2">
@@ -63,24 +62,36 @@
         <a href="https://github.com/aboutaaron"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
 
         <script id="storify-template" type="text/x-handlebars-template">
-            <div class="span6">
-                <div class="well">
-                    <a href="{{ permalink }}">
-                        <h3>{{ title }}</h3>
-                    </a>
-                    <div class="row">
-                        <div class="span2">
-                            <span id="page-views">{{ stats.views }} <i class="fui-eye-24"></i></span>
-                        </div>
-                        <div class="span2">
-                            <span id="quotes">{{ stats.elements.quotes }} <i class="fui-bubble-24"></i></span>
-                        </div>
-                        <div class="span2">
-                            <span id="likes">{{ stats.likes }} <i class="fui-heart-24"></i></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="span4">
+               <a href="{{ permalink }}">
+                    <h2>{{ title }}</h2>
+                </a>
+                <ul class="inline">
+                    <li>{{ author.username }}</li>
+                    <li>{{ date }}</li>
+                    <li>{{ search }}</li>
+                </ul>
+            </div><!-- /.span5 -->
+            <div class="span3">
+                <ul class="unstyled">
+                    <li>
+                        <span class="meta"><i class="icon-eye-open"></i></span>
+                        <span class="meta-content">{{ stats.views }}</span>
+                    </li>
+                    <li>
+                        <span class="meta"><i class="icon-heart"></i></span>
+                        <span class="meta-content">{{ stats.likes }}</span>
+                    </li>
+                    <li>
+                        <span class="meta"><i class="icon-quote-right"></i></span>
+                        <span class="meta-content">{{ stats.elements.quotes }}</span>
+                    </li>
+                    <li>
+                        <span class="meta"><i class="icon-link"></i></span>
+                        <span class="meta-content">{{ stats.elements.links }}</span>
+                    </li>
+                </ul>
+            </div><!-- /.span2 -->
         </script>
 
         <!--[if lt IE 7]>

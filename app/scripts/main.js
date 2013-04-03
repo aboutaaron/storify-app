@@ -21,10 +21,13 @@ require(['jquery', 'bootstrap', 'handlebars', 'd3'], function ($) {
     // Initialize Firebase backend
     var storiesRef = new Firebase('https://storify.firebaseio.com/stories/');
 
+    // global
+    var query;
+
     // On the submission of a query fetch the data
     $('#search-storify').on('click', function(e) {
         e.preventDefault();
-        var query = $('input').val();
+        query = $('input').val();
 
         // Ajax request to Storify API
         $.ajax({
@@ -42,6 +45,7 @@ require(['jquery', 'bootstrap', 'handlebars', 'd3'], function ($) {
                         permalink: this.permalink,
                         version: this.version,
                         thumbnail: this.thumbnail,
+                        date: this.date.published,
                         stats: {
                             views: this.stats.views,
                             likes: this.stats.likes,
@@ -79,10 +83,10 @@ require(['jquery', 'bootstrap', 'handlebars', 'd3'], function ($) {
             $('form').append('<span class="btn btn-info">There is nothing in the database. Search some stories!</span>')
 
         } else {
-            /*$.each(snapshot.val(), function() {
+            $.each(snapshot.val(), function() {
                 $('#storify-stories').append(template(this));
                 console.log(this);
-            })*/
+            })
             console.log(snapshot.val())
         }
     });
