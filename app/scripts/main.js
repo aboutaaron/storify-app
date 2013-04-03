@@ -60,7 +60,7 @@ require(['jquery', 'bootstrap', 'handlebars', 'd3'], function ($) {
                         search: query
                     });
                 }); // .each()
-                //location.reload();
+                location.reload();
             } // success
         }); // .ajax()
     }); // .click()
