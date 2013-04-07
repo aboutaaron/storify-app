@@ -42,6 +42,7 @@ require(['jquery', 'bootstrap', 'handlebars', 'moment'], function ($) {
                     storiesRef.push({
                         title: this.title,
                         id: this.sid,
+                        description: this.description,
                         permalink: this.permalink,
                         version: this.version,
                         thumbnail: this.thumbnail,
@@ -69,6 +70,14 @@ require(['jquery', 'bootstrap', 'handlebars', 'moment'], function ($) {
         }); // .ajax()
     }); // .click()
 
+    // Clear DB
+    $('a#clear').on('click', function(e) {
+        e.preventDefault();
+
+        storiesRef.remove();
+        location.reload();
+    });
+
     // Attach to Handlebars
     var source = $('#storify-template').html();
     var template = Handlebars.compile(source);
@@ -80,7 +89,7 @@ require(['jquery', 'bootstrap', 'handlebars', 'moment'], function ($) {
 
     storiesRef.on('value', function(snapshot) {
         if(snapshot.val() === null) {
-            $('form').append('<span class="btn btn-info">There is nothing in the database. Search some stories!</span>');
+            $('form').append('<span class="btn btn-info">There is nothing in the database. Search for some stories!</span>');
 
         } else {
             $.each(snapshot.val(), function() {
@@ -89,11 +98,12 @@ require(['jquery', 'bootstrap', 'handlebars', 'moment'], function ($) {
         }
     });
 
-    // tooltip
-    $("[data-toggle='tooltip']").tooltip();
-
     // Handlebar Helpers
     Handlebars.registerHelper('format-date', function (handlebarData) {
         return moment(handlebarData).format('MMM D, YYYY');
     });
+
+    // tooltip
+    $("[data-toggle='tooltip']").tooltip();
+
 }); // require()

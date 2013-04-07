@@ -52,18 +52,9 @@ footer {
     //font-size: 300%;
 }
 
-#storify-stories {
-    .inline {
-        border-bottom: 1px solid $gray;
-        margin-bottom: 50px;
-        padding-bottom: 52px;
-    }
-
-    .story {
-        .span4 {
-            //background-color: lighter($gray, 50%);
-        }
-    }
+hr {
+    margin-bottom: 50px;
+    padding-bottom: 52px;
 }
 
 .meta {
