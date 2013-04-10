@@ -103,7 +103,4 @@ require(['jquery', 'bootstrap', 'handlebars', 'moment'], function ($) {
         return moment(handlebarData).format('MMM D, YYYY');
     });
 
-    // tooltip
-    $("[data-toggle='tooltip']").tooltip();
-
 }); // require()
