@@ -105,3 +105,11 @@ hr {
         li { display: inline; }
     }
 }
+
+@media (max-width: 480px) {
+    .meta {
+        li {
+            margin-right: 43px;
+        }
+    }
+}
