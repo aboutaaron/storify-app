@@ -51,12 +51,20 @@
                         <h1 class="page-header">
                             Hey! I'm Aaron and I want to intern for Storify.
                         </h1>
-                        <div class="row">
+                        <ul class="unstyled hidden-desktop logos">
+                            <li>
+                                <img src="images/avatar-web.jpg" alt="Hey This is me.">
+                            </li>
+                            <li>
+                                <img src="images/solo-logo.png" alt="This is Storify and I'd like to work there.">
+                            </li>
+                        </ul>
+                        <div class="row visible-desktop">
                             <div class="span2">
-                                <img src="images/avatar-hires.jpg" alt="">
+                                <img src="images/avatar-hires.jpg" alt="Hey This is me.">
                             </div>
                             <div class="span2">
-                                <img src="images/solo-logo.png" alt="">
+                                <img src="images/solo-logo.png" alt="This is Storify and I'd like to work there.">
                             </div>
                         </div><!-- /.row -->
 
@@ -109,7 +117,7 @@
         <footer class="container">
             <div class="span8 offset2">
                 Powered by <a id="storify-footer-logo" href="http://storify.com"><em>Storify</em></a>.
-                <small>Built with <a href="http://firebase.com">Firebase</a>, <a href="http://yeoman.io/">Yeoman</a>, <a href="http://twitter.github.com/bootstrap">Bootstrap</a>, <a href="http://designmodo.github.com/Flat-UI/">Flat-UI</a> and <a href="http://sass-lang.com">SASS</a>.</small>
+                Built with <a href="http://firebase.com">Firebase</a>, <a href="http://yeoman.io/">Yeoman</a>, <a href="http://handlebarsjs.com/">Handlebars</a>, <a href="http://twitter.github.com/bootstrap">Bootstrap</a>, <a href="http://designmodo.github.com/Flat-UI/">Flat-UI</a> and <a href="http://sass-lang.com">SASS</a>.
             </div>
         </footer>
 
@@ -123,7 +131,7 @@
                 <ul class="inline">
                     <li>{{ author.username }}</li>
                     <li>{{ format-date date }}</li>
-                    <li>{{ search }}</li>
+                    <li class="visible-desktop">{{ search }}</li>
                 </ul>
                 <a class="btn" data-target="#{{id}}" data-toggle="modal">
                     Read More &rarr;
@@ -145,20 +153,28 @@
             <div class="span3">
                 <ul class="unstyled meta">
                     <li>
-                        <span class="meta-icon"><i class="icon-eye-open"></i></span>
-                        <span class="meta-content">{{ stats.views }}</span>
+                        <span class="meta-content" data-toggle="tooltip" title="{{ stats.views }} Page views">
+                            <i class="icon-eye-open"></i>
+                            {{ stats.views }}
+                        </span>
                     </li>
                     <li>
-                        <span class="meta-icon"><i class="icon-heart"></i></span>
-                        <span class="meta-content">{{ stats.likes }}</span>
+                        <span class="meta-content" data-toggle="tooltip" title="{{ stats.likes }} Likes">
+                            <i class="icon-heart"></i>
+                            {{ stats.likes }}
+                        </span>
                     </li>
                     <li>
-                        <span class="meta-icon"><i class="icon-quote-left"></i></span>
-                        <span class="meta-content">{{ stats.elements.quotes }}</span>
+                        <span class="meta-content" data-toggle="tooltip" title="{{ stats.elements.quotes }} Quoted items">
+                            <i class="icon-quote-left"></i>
+                            {{ stats.elements.quotes }}
+                        </span>
                     </li>
                     <li>
-                        <span class="meta-icon"><i class="icon-link"></i></span>
-                        <span class="meta-content">{{ stats.elements.links }}</span>
+                        <span class="meta-content" data-toggle="tooltip" title="{{ stats.elements.links }} Links">
+                            <i class="icon-link"></i>
+                            {{ stats.elements.links }}
+                        </span>
                     </li>
                 </ul>
             </div><!-- /.span2 -->

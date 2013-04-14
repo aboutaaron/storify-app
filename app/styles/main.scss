@@ -65,6 +65,10 @@ hr {
     }
 }
 
+.modal, .modal.fade.in {
+    top: 3%; /* was 10% */
+}
+
 .inline {
     li:nth-child(1), li:nth-child(2) {
         border-right: 1px solid $gray;
@@ -76,5 +80,28 @@ hr {
     li {
         display: inline-block;
         font-size: 20px;
+    }
+}
+
+.visible-desktop {
+    margin-bottom: 44px;
+}
+
+// Media Queries
+// -------------
+
+@media (max-width: 767px) {
+    .meta {
+        margin-top: -82px;
+        margin-bottom: 70px;
+
+        li {
+            display: inline-block;
+            margin-right: 57px;
+        }
+    }
+
+    .logos {
+        li { display: inline; }
     }
 }

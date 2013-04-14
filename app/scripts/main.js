@@ -1,5 +1,3 @@
-/*global Handlebars:false */
-
 require.config({
     paths: {
         jquery: '../components/jquery/jquery',
@@ -15,7 +13,7 @@ require.config({
     }
 });
 
-require(['jquery', 'bootstrap', 'handlebars', 'moment'], function ($) {
+require(['jquery', 'bootstrap', 'handlebars', 'moment'], function($) {
     'use strict';
 
     // Initialize Firebase backend
