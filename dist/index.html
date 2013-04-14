@@ -1,0 +1,189 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--
+                   .               ,.
+                  T."-._..---.._,-"/|
+                  l|"-.  _.v._   (" |
+                  [l /.'_ \; _~"-.`-t
+                  Y " _(o} _{o)._ ^.|
+                  j  T  ,-<v>-.  T  ]
+                  \  l ( /-^-\ ) !  !
+                   \. \.  "~"  ./  /c-..,__
+                     ^r- .._ .- .-"  `- .  ~"--.
+                      > \.                      \
+                      ]   ^.                     \   * You should hire Aaron. He'll add kittens to your code.
+                      3  .  ">            .       Y  * Aaron Williams | eager code adventurer
+         ,.__.--._   _j   \ ~   .         ;       |  * http://aboutaaron.com
+        (    ~"-._~"^._\   ^.    ^._      I     . l  * @aboutaaron
+         "-._ ___ ~"-,_7    .Z-._   7"   Y      ;  \        _
+            /"   "~-(r r  _/_--._~-/    /      /,.--^-._   / Y
+            "-._    '"~~~>-._~]>--^---./____,.^~        ^.^  !
+                ~--._    '   Y---.                        \./
+                     ~~--._  l_   )                        \
+                           ~-._~~~---._,____..---           \
+                               ~----"~       \
+                                              \
+
+-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="styles/main.css">
+        <script src="scripts/vendor/modernizr.js"></script>
+
+        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro|Lato" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+
+        <script type="text/javascript" src="https://cdn.firebase.com/v0/firebase.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="span4">
+                    <div class="app-sidebar">
+                        <h1 class="page-header">
+                            Hey! I'm Aaron and I want to intern for Storify.
+                        </h1>
+                        <ul class="unstyled hidden-desktop logos">
+                            <li>
+                                <img src="images/avatar-web.jpg" alt="Hey This is me.">
+                            </li>
+                            <li>
+                                <img src="images/solo-logo.jpg" alt="This is Storify and I'd like to work there.">
+                            </li>
+                        </ul>
+                        <div class="row visible-desktop">
+                            <div class="span2">
+                                <img src="images/avatar-web.jpg" alt="Hey This is me.">
+                            </div>
+                            <div class="span2">
+                                <img src="images/solo-logo.jpg" alt="This is Storify and I'd like to work there.">
+                            </div>
+                        </div><!-- /.row -->
+
+                        <p>I'm a journalist turned web developer who loves to tell stories with code.</p>
+                        <p>Though I'm confident in my skills as a developer, I still have a lot to learn. As a result, I'd love to intern or contract you guys first and learn from a team that build a great product.</p>
+                        <p>To show where I'm at, I built this lil' app that searches Storify with the Stories API, saves them and displays them to the right.</p>
+                        <p>It ain't much, but it was a blast to build. If you're intereted, my details are below. Thanks!</p>
+                        <div class="bio">
+                            <ul class="unstyled horizontal">
+                                <li>
+                                    <a href="http://aboutaaron.com" title="Visit my website">
+                                        <i class="icon-home"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://twitter.com/aboutaaron" title="Follow me on Twitter">
+                                        <i class="icon-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://github.com/aboutaaron" title="View my code on Github">
+                                        <i class="icon-github-alt"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://resume.linkedinlabs.com/z3wen348n" title="Peep my resume on LinkedIn">
+                                        <i class="icon-linkedin"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <form action="">
+                            <fieldset>
+                                <legend>Let's fetch some data | <a href="#" id="clear">clear</a></legend>
+                                <label for="">Search:</label>
+                                <input type="text" placeholder="Search for stories about ... ">
+                                <button class="btn" id="search-storify">Search</button>
+                            </fieldset>
+                        </form>
+                    </div> <!-- /.app-sidebar -->
+                </div><!-- /.span4 -->
+                <div class="span7 offset1">
+                    <div class="row" id="storify-stories">
+                    </div><!-- /#storify-stories -->
+                </div> <!-- /.span7 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+
+        <footer class="container">
+            <div class="span8 offset2">
+                Powered by <a id="storify-footer-logo" href="http://storify.com"><em>Storify</em></a>.
+                Built with <a href="http://firebase.com">Firebase</a>, <a href="http://yeoman.io/">Yeoman</a>, <a href="http://handlebarsjs.com/">Handlebars</a>, <a href="http://twitter.github.com/bootstrap">Bootstrap</a>, <a href="http://designmodo.github.com/Flat-UI/">Flat-UI</a> and <a href="http://sass-lang.com">SASS</a>.
+            </div>
+        </footer>
+
+        <a href="https://github.com/aboutaaron"><img style="position: absolute; top: 0; right: 0; border: 0" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+
+        <script id="storify-template" type="text/x-handlebars-template">
+            <div class="span4">
+               <a href="{{ permalink }}">
+                    <h2>{{ title }}</h2>
+                </a>
+                <ul class="inline">
+                    <li>{{ author.username }}</li>
+                    <li>{{ format-date date }}</li>
+                    <li class="visible-desktop">{{ search }}</li>
+                </ul>
+                <a class="btn" data-target="#{{id}}" data-toggle="modal">
+                    Read More &rarr;
+                </a>
+                <!-- Modal -->
+                <div id="{{id}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <img src="{{ thumbnail }}" alt="{{ title }}">
+                        <h3 id="myModalLabel">{{ title }}</h3>
+                        <div class="modal-body">
+                            <p>{{ description }}</p>
+                            <a href="{{ permalink }}/slideshow">View slideshow</a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div><!-- /.span5 -->
+            <div class="span3">
+                <ul class="unstyled meta">
+                    <li>
+                        <span class="meta-content" data-toggle="tooltip" title="{{ stats.views }} Page views">
+                            <i class="icon-eye-open"></i>
+                            {{ stats.views }}
+                        </span>
+                    </li>
+                    <li>
+                        <span class="meta-content" data-toggle="tooltip" title="{{ stats.likes }} Likes">
+                            <i class="icon-heart"></i>
+                            {{ stats.likes }}
+                        </span>
+                    </li>
+                    <li>
+                        <span class="meta-content" data-toggle="tooltip" title="{{ stats.elements.quotes }} Quoted items">
+                            <i class="icon-quote-left"></i>
+                            {{ stats.elements.quotes }}
+                        </span>
+                    </li>
+                    <li>
+                        <span class="meta-content" data-toggle="tooltip" title="{{ stats.elements.links }} Links">
+                            <i class="icon-link"></i>
+                            {{ stats.elements.links }}
+                        </span>
+                    </li>
+                </ul>
+            </div><!-- /.span2 -->
+        </script> <!-- Handlebars template -->
+
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <script data-main="scripts/main" src="components/requirejs/require.js"></script>
+    </body>
+</html>
