@@ -1,3 +1,8 @@
+/*global Handlebars:false */
+/*global Firebase:false */
+/*global moment:false */
+
+
 require.config({
     paths: {
         jquery: '../components/jquery/jquery',
@@ -13,7 +18,7 @@ require.config({
     }
 });
 
-require(['jquery', 'bootstrap', 'handlebars', 'moment'], function($) {
+require(['jquery', 'bootstrap', 'handlebars', 'moment'], function ($) {
     'use strict';
 
     // Initialize Firebase backend
@@ -23,7 +28,7 @@ require(['jquery', 'bootstrap', 'handlebars', 'moment'], function($) {
     var query;
 
     // On the submission of a query fetch the data
-    $('#search-storify').on('click', function(e) {
+    $('#search-storify').on('click', function (e) {
         e.preventDefault();
         query = $('input').val();
 
@@ -31,11 +36,11 @@ require(['jquery', 'bootstrap', 'handlebars', 'moment'], function($) {
         $.ajax({
             dataType: 'jsonp',
             url: 'http://api.storify.com/v1/stories/search?q=' + query + '&per_page=4',
-            error: function(errorThrown) { console.log(errorThrown); },
-            success: function(data) {
+            error: function (errorThrown) { console.log(errorThrown); },
+            success: function (data) {
                 // Iterate through the data and push the values to Firebase
                 var stories = data.content.stories;
-                $.each(stories, function() {
+                $.each(stories, function () {
 
                     storiesRef.push({
                         title: this.title,
@@ -69,7 +74,7 @@ require(['jquery', 'bootstrap', 'handlebars', 'moment'], function($) {
     }); // .click()
 
     // Clear DB
-    $('a#clear').on('click', function(e) {
+    $('a#clear').on('click', function (e) {
         e.preventDefault();
 
         storiesRef.remove();
@@ -85,12 +90,12 @@ require(['jquery', 'bootstrap', 'handlebars', 'moment'], function($) {
     // Check against values already in Firebase (by id) and only
     // append values that are unique
 
-    storiesRef.on('value', function(snapshot) {
-        if(snapshot.val() === null) {
+    storiesRef.on('value', function (snapshot) {
+        if (snapshot.val() === null) {
             $('form').append('<span class="btn btn-info">There is nothing in the database. Search for some stories!</span>');
 
         } else {
-            $.each(snapshot.val(), function() {
+            $.each(snapshot.val(), function () {
                 $('#storify-stories').append(template(this));
             });
         }
