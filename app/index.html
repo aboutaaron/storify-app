@@ -93,8 +93,8 @@
                             <fieldset>
                                 <legend>Let's fetch some data | <a href="#" id="clear">clear</a></legend>
                                 <label for="">Search:</label>
-                                <input type="text" placeholder="Search Storify ...">
-                                <button class="btn" id="search-storify">Let's viz!</button>
+                                <input type="text" placeholder="Search for stories about ... ">
+                                <button class="btn" id="search-storify">Search</button>
                             </fieldset>
                         </form>
                     </div> <!-- /.app-sidebar -->
@@ -136,7 +136,7 @@
                         <h3 id="myModalLabel">{{ title }}</h3>
                         <div class="modal-body">
                             <p>{{ description }}</p>
-                            <a href="{{permalink}}/slideshow">View slideshow</a>
+                            <a href="{{ permalink }}/slideshow">View slideshow</a>
                         </div>
                     </div>
                 </div>
@@ -162,7 +162,7 @@
                     </li>
                 </ul>
             </div><!-- /.span2 -->
-        </script>
+        </script> <!-- Handlebars template -->
 
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>

@@ -94,7 +94,7 @@ require(['jquery', 'bootstrap', 'handlebars', 'moment'], function ($) {
         } else {
             $.each(snapshot.val(), function() {
                 $('#storify-stories').append(template(this));
-            })
+            });
         }
     });
 
@@ -103,4 +103,4 @@ require(['jquery', 'bootstrap', 'handlebars', 'moment'], function ($) {
         return moment(handlebarData).format('MMM D, YYYY');
     });
 
-}); // require()
+}); // require();
