@@ -86,9 +86,7 @@ require(['jquery', 'bootstrap', 'handlebars', 'moment'], function ($) {
     var template = Handlebars.compile(source);
 
     // If the nothing is the db write an alert to the DOM
-    // However, upon a search, grab the data and throw it on to the page
-    // Check against values already in Firebase (by id) and only
-    // append values that are unique
+    // Otherwise prepend to DOM using handlebars template
 
     storiesRef.on('value', function (snapshot) {
         if (snapshot.val() === null) {
@@ -96,12 +94,13 @@ require(['jquery', 'bootstrap', 'handlebars', 'moment'], function ($) {
 
         } else {
             $.each(snapshot.val(), function () {
-                $('#storify-stories').append(template(this));
+                $('#storify-stories').prepend(template(this));
             });
         }
     });
 
     // Handlebar Helpers
+    // Format date
     Handlebars.registerHelper('format-date', function (handlebarData) {
         return moment(handlebarData).format('MMM D, YYYY');
     });
